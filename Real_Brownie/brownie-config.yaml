@@ -1,1 +1,4 @@
 dotenv: .env
+
+wallets:
+  from_key: ${PRIVATE_KEY} #This transforms it into the env variable.
