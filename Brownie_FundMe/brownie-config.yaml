@@ -8,3 +8,21 @@ compiler:
     remappings:
       - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.2.0"
       - "@OpenZeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1"
+
+dotenv: .env
+networks:
+  rinkeby:
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    verify: True
+
+  development:
+    eth_usd_price_feed: "0xd9a6D566d28bfa5C66e3072125d2CAa6f7802B6F"
+    verify: False
+
+  ganache-local:
+    eth_usd_price_feed: "0x0B18FE588705EF070726Af8fdC9b625F8Ba35Ad5"
+    verify: False
+
+wallets:
+  from_key: ${PRIVATE_KEY} #This transforms it into the env variable.
+  from_key: ${Ganache_private_key}
