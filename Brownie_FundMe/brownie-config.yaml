@@ -11,18 +11,29 @@ compiler:
 
 dotenv: .env
 networks:
+  default: development
+
   rinkeby:
     eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
     verify: True
 
+  mainnet-fork-dev:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+
   development:
-    eth_usd_price_feed: "0xd9a6D566d28bfa5C66e3072125d2CAa6f7802B6F"
+    eth_usd_price_feed: "0xeb07F8B6B53CaF91E3Bf9F1A88599d754964505d"
     verify: False
 
   ganache-local:
-    eth_usd_price_feed: "0x0B18FE588705EF070726Af8fdC9b625F8Ba35Ad5"
+    eth_usd_price_feed: "0xeb07F8B6B53CaF91E3Bf9F1A88599d754964505d"
+    verify: False
+
+  prosper-local:
+    eth_usd_price_feed: "0x3A0B2669A0B6600eC306616Fc19D0Bf524FA0890"
     verify: False
 
 wallets:
   from_key: ${PRIVATE_KEY} #This transforms it into the env variable.
   from_key: ${Ganache_private_key}
+  from_key: ${Prosper_private_key}

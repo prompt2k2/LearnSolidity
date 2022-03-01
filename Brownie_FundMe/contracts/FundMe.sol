@@ -26,7 +26,7 @@ contract FundMe {
         uint256 minUSD = 50 * 10**18; //Minimum value transferable is 50USD. Raised here to power of 18 for Wei conversion.
         require(
             getConversionRate(msg.value) >= minUSD,
-            "The amount is not sufficient"
+            "FUND IS NOT ENOUGH!!!"
         ); //ensures the recieved amount is not less than 50USD
         addressToAmountFunded[msg.sender] += msg.value; //Sender and the amount they sent.
         funders.push(msg.sender);
@@ -54,7 +54,7 @@ contract FundMe {
     {
         //ethAmount is the amount in Ether send.
         uint256 ethPrice = getPrice();
-        uint256 ethAmountInUSD = (ethPrice * ethAmount) / 1000000000000000000;
+        uint256 ethAmountInUSD = (ethPrice * ethAmount) / 100000000;
         return ethAmountInUSD; //returns the current value of Ethereum in USD
     }
 
@@ -63,8 +63,8 @@ contract FundMe {
 
         uint256 minUSD = 50 * 10**18;
         uint256 price = getPrice();
-        uint256 precision = 1 * 10**18;   
-        return (minUSD * precision)/price;
+        uint256 precision = 1 * 10**18;
+        return ((minUSD * precision) / price) + 1;
     }
 
     modifier onlyOwner() {
